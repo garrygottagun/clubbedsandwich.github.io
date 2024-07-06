@@ -3,14 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clubbed Sandwich</title>
+    <title>Clubbed Sandwich - Affiliate Marketing</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Clubbed Sandwich</h1>
-    <p>This is a simple website created with HTML, CSS, and JavaScript.</p>
-    <img src="https://via.placeholder.com/150" alt="Sample Image">
-    <a href="https://www.amazon.com" target="_blank">Check out Amazon</a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Clubbed Sandwich</h1>
+        <p>Discover our curated selection of useful products available on Amazon.</p>
+    </section>
+
+    <section id="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <!-- Repeat this block for each product -->
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Product Image">
+                <h3>Product Name</h3>
+                <p>Description of the product.</p>
+                <a href="https://www.amazon.com/dp/B08XY" class="btn">Buy Now</a>
+            </div>
+            <!-- Add more products here -->
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Clubbed Sandwich is dedicated to bringing you the best products available on Amazon. We carefully curate our selection to ensure you find only the most useful and high-quality items.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For inquiries, please contact us at <a href="mailto:info@clubbedsandwich.com">info@clubbedsandwich.com</a>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Clubbed Sandwich. All rights reserved.</p>
+    </footer>
+
     <script src="scripts.js"></script>
 </body>
 </html>
