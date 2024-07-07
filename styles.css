@@ -98,3 +98,37 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    flex: 1;
+    padding: 2em;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Styles for the Snake game */
+#gameCanvas {
+    background-color: #f4f4f4;
+    border: 1px solid #333;
+    display: block;
+    margin: 0 auto;
+}

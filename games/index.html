@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Clubbed Sandwich</title>
+    <title>Games - Clubbed Sandwich</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="games.css">
 </head>
 <body>
     <header>
@@ -13,16 +14,18 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../products/index.html">Products</a></li>
                 <li><a href="../about/index.html">About</a></li>
-                <li><a href="index.html">Contact</a></li>
-                <li><a href="../games/index.html">Games</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+                <li><a href="index.html">Games</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>For inquiries, please contact us at <a href="mailto:clubbed.sandwich21@gmail.com">clubbed.sandwich21@gmail.com</a>.</p>
+        <section id="games">
+            <h2>Club Sandwich Snake Game</h2>
+            <div id="gameContainer">
+                <canvas id="gameCanvas"></canvas>
+            </div>
         </section>
     </main>
 
@@ -30,6 +33,6 @@
         <p>&copy; 2024 Clubbed Sandwich LLC. All rights reserved.</p>
     </footer>
 
-    <script src="../scripts.js"></script>
+    <script src="snake.js"></script>
 </body>
 </html>

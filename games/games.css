@@ -1,0 +1,13 @@
+#gameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#gameCanvas {
+    border: 1px solid #000;
+    background-color: #f4f4f4;
+    width: 400px;
+    height: 400px;
+}
