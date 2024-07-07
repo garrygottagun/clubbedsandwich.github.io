@@ -92,6 +92,10 @@ function gameLoop() {
 }
 
 document.addEventListener('keydown', function(e) {
+    if ([37, 38, 39, 40].includes(e.which)) {
+        e.preventDefault();
+    }
+
     if (e.which === 37 && snake.dx === 0) {
         snake.dx = -grid;
         snake.dy = 0;
