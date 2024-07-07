@@ -1,19 +1,18 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+const startButton = document.getElementById('startButton');
 
 const grid = 20;
 let count = 0;
 let score = 0;
+let speed = 10; // initial speed
 
 let snake = {
-    x: 160,
-    y: 160,
-    
+    x: 300,
+    y: 300,
     dx: grid,
     dy: 0,
-    
     cells: [],
-    
     maxCells: 4
 };
 
@@ -27,22 +26,22 @@ function getRandomInt(min, max) {
 }
 
 function resetGame() {
-    snake.x = 160;
-    snake.y = 160;
+    snake.x = 300;
+    snake.y = 300;
     snake.cells = [];
     snake.maxCells = 4;
     snake.dx = grid;
     snake.dy = 0;
     score = 0;
+    speed = 10;
 
-    apple.x = getRandomInt(0, 25) * grid;
-    apple.y = getRandomInt(0, 25) * grid;
+    apple.x = getRandomInt(0, 30) * grid;
+    apple.y = getRandomInt(0, 30) * grid;
 }
 
 function gameLoop() {
-    requestAnimationFrame(gameLoop);
-
-    if (++count < 4) {
+    if (++count < speed) {
+        requestAnimationFrame(gameLoop);
         return;
     }
 
@@ -52,20 +51,13 @@ function gameLoop() {
     snake.x += snake.dx;
     snake.y += snake.dy;
 
-    if (snake.x < 0) {
+    if (snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height) {
         resetGame();
-    } else if (snake.x >= canvas.width) {
-        resetGame();
-    }
-
-    if (snake.y < 0) {
-        resetGame();
-    } else if (snake.y >= canvas.height) {
-        resetGame();
+        startButton.style.display = 'block';
+        return;
     }
 
     snake.cells.unshift({x: snake.x, y: snake.y});
-
     if (snake.cells.length > snake.maxCells) {
         snake.cells.pop();
     }
@@ -75,25 +67,28 @@ function gameLoop() {
 
     ctx.fillStyle = 'green';
     snake.cells.forEach(function(cell, index) {
-
         ctx.fillRect(cell.x, cell.y, grid-1, grid-1);
 
         if (cell.x === apple.x && cell.y === apple.y) {
             snake.maxCells++;
             score++;
-            
-            apple.x = getRandomInt(0, 25) * grid;
-            apple.y = getRandomInt(0, 25) * grid;
+            speed = Math.max(4, speed - 0.5); // increase speed
+
+            apple.x = getRandomInt(0, 30) * grid;
+            apple.y = getRandomInt(0, 30) * grid;
         }
 
         for (let i = index + 1; i < snake.cells.length; i++) {
             if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
                 resetGame();
+                startButton.style.display = 'block';
+                return;
             }
         }
     });
 
     document.getElementById('score').innerText = score;
+    requestAnimationFrame(gameLoop);
 }
 
 document.addEventListener('keydown', function(e) {
@@ -112,5 +107,8 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-resetGame();
-requestAnimationFrame(gameLoop);
+startButton.addEventListener('click', function() {
+    resetGame();
+    startButton.style.display = 'none';
+    requestAnimationFrame(gameLoop);
+});
