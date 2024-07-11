@@ -1,3 +1,4 @@
+/* Global styles */
 body {
     display: flex;
     flex-direction: column;
@@ -19,6 +20,9 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav ul li {
@@ -31,16 +35,15 @@ nav ul li a {
     text-decoration: none;
 }
 
+nav ul li input[type="text"] {
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
 main {
     flex: 1;
     padding: 2em;
     text-align: center;
-}
-
-.center-image {
-    max-width: 100%;
-    height: auto;
-    margin-top: 2em;
 }
 
 .product-grid {
@@ -124,7 +127,7 @@ footer {
     color: white;
     border: none;
     border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #startButton:hover {

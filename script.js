@@ -54,7 +54,6 @@ function productSearch() {
     const query = document.getElementById('productSearch').value.toLowerCase();
     const results = products.filter(product => product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query));
 
-    displaySearchResults('productSearchResults', results);
     displayProducts(results);
 }
 
