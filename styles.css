@@ -38,6 +38,8 @@ nav ul li a {
 nav ul li input[type="text"] {
     padding: 0.5em;
     margin-left: 1em;
+    border: none;
+    border-radius: 5px;
 }
 
 main {
