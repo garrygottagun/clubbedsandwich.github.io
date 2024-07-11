@@ -89,6 +89,7 @@ function displayProducts(productsToDisplay) {
 
 document.getElementById('headerSearch').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
+        localStorage.setItem('searchQuery', document.getElementById('headerSearch').value);
         window.location.href = 'products/index.html';
     }
 });
@@ -100,7 +101,14 @@ document.getElementById('productSearch').addEventListener('keypress', function (
 });
 
 window.onload = function () {
-    displayProducts(products);
+    const searchQuery = localStorage.getItem('searchQuery');
+    if (searchQuery && document.getElementById('productSearch')) {
+        document.getElementById('productSearch').value = searchQuery;
+        productSearch();
+        localStorage.removeItem('searchQuery');
+    } else {
+        displayProducts(products);
+    }
 };
 
 console.log("Website loaded successfully!");
