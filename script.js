@@ -46,14 +46,12 @@ const products = [
 function headerSearch() {
     const query = document.getElementById('headerSearch').value.toLowerCase();
     const results = products.filter(product => product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query));
-
     displaySearchResults('headerSearchResults', results);
 }
 
 function productSearch() {
     const query = document.getElementById('productSearch').value.toLowerCase();
     const results = products.filter(product => product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query));
-
     displayProducts(results);
 }
 
@@ -86,28 +84,32 @@ function displayProducts(productsToDisplay) {
     });
 }
 
-document.getElementById('headerSearch').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        localStorage.setItem('searchQuery', document.getElementById('headerSearch').value);
-        window.location.href = 'products/index.html';
+document.addEventListener('DOMContentLoaded', function() {
+    const headerSearchInput = document.getElementById('headerSearch');
+    if (headerSearchInput) {
+        headerSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                localStorage.setItem('searchQuery', headerSearchInput.value);
+                window.location.href = 'products/index.html';
+            }
+        });
+    }
+
+    const productSearchInput = document.getElementById('productSearch');
+    if (productSearchInput) {
+        productSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                productSearch();
+            }
+        });
+
+        const searchQuery = localStorage.getItem('searchQuery');
+        if (searchQuery) {
+            productSearchInput.value = searchQuery;
+            productSearch();
+            localStorage.removeItem('searchQuery');
+        } else {
+            displayProducts(products);
+        }
     }
 });
-
-document.getElementById('productSearch').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        productSearch();
-    }
-});
-
-window.onload = function () {
-    const searchQuery = localStorage.getItem('searchQuery');
-    if (searchQuery && document.getElementById('productSearch')) {
-        document.getElementById('productSearch').value = searchQuery;
-        productSearch();
-        localStorage.removeItem('searchQuery');
-    } else {
-        displayProducts(products);
-    }
-};
-
-console.log("Website loaded successfully!");
