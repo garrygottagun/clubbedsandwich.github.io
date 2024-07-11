@@ -37,6 +37,12 @@ main {
     text-align: center;
 }
 
+.center-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 2em;
+}
+
 .product-grid {
     display: flex;
     flex-wrap: wrap;
@@ -99,36 +105,28 @@ footer {
     width: 100%;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-main {
-    flex: 1;
-    padding: 2em;
-    text-align: center;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
 /* Styles for the Snake game */
 #gameCanvas {
     background-color: #f4f4f4;
-    border: 1px solid #333;
+    border: 5px solid #4CAF50; /* Professional-looking border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     display: block;
     margin: 0 auto;
+}
+
+#startButton {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#startButton:hover {
+    background-color: #45a049;
 }
