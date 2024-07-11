@@ -15,11 +15,19 @@
                 <li><a href="../about/index.html">About</a></li>
                 <li><a href="../contact/index.html">Contact</a></li>
                 <li><a href="../games/index.html">Games</a></li>
+                <li>
+                    <input type="text" id="headerSearch" placeholder="Search..." oninput="headerSearch()" />
+                    <div id="headerSearchResults" class="search-results"></div>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <section id="products-search">
+            <input type="text" id="productSearch" placeholder="Search products..." oninput="productSearch()" />
+            <div id="productSearchResults" class="search-results"></div>
+        </section>
         <section id="products">
             <h2>Products</h2>
             <div class="product-grid">
